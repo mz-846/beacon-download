@@ -14,9 +14,9 @@
 
 Upload your technical documentation. Beacon marks it up with suggested changes, page by page. Each change is tied to the Great Britain rule behind it, and you decide what to keep.
 
-![Beacon showing a made-up technical file with a sentence struck through and the suggested replacement in the panel on the right](docs/images/03-change-selected-light.jpg)
+![Beacon reviewing the fictional FlowGuard IP-500 technical file, with the device class line struck through and the suggested wording in the panel on the right](docs/images/03-change-selected-light.jpg)
 
-<sub>Screenshots show Beacon reviewing a made-up sample file. They are examples, not advice about any real device.</sub>
+<sub>Screenshots show Beacon reviewing fictional technical files made up for testing: FlowGuard IP-500 (an infusion pump), Kestrel KT-20 and VenaGuard HC-7. Every device, company, Approved Body and person in them is invented. The output shown is an example, not advice about any real device.</sub>
 
 ## How it works
 
@@ -30,9 +30,19 @@ Upload your technical documentation. Beacon marks it up with suggested changes, 
 
 **4. Ask about anything.** Answers cite the pages of your file and the regulations they rely on. Click a page and the passage lights up.
 
-![The chat answers a question about classification and highlights the passage it relies on](docs/images/06-chat-citation-light.jpg)
+![The chat answers which class the FlowGuard pump is given and highlights the table rows it relies on](docs/images/06-chat-citation-light.jpg)
 
 **5. Take your work with you.** Export the PDF with Beacon's changes as standard comments, or the change list as a Word document.
+
+## It reads images, tables and diagrams too
+
+Beacon's AI reads every page as a picture as well as text, so block diagrams, scanned certificates and summary tables count too. Pick a page and see what it found beside it. Text inside a picture can't be checked word for word, so each finding from an image is marked **Needs human confirmation**, for you to confirm or dispute.
+
+![Image recognition for the fictional Kestrel KT-20 file: the page with its system block diagram, and the AI's reading of the diagram beside it](docs/images/10-image-recognition-light.jpg)
+
+The **Evidence Matrix** checks the whole file area by area (intended purpose, classification, essential requirements, risk management, software and more), showing what's covered, partial or missing, where the evidence is, and the rule it was judged against. Quotes Beacon can't find word for word are dropped, not guessed.
+
+![The Evidence Matrix for the fictional VenaGuard HC-7 file](docs/images/12-evidence-matrix-light.jpg)
 
 ## You can always see where a suggestion comes from
 
@@ -49,7 +59,7 @@ If Beacon can't find the exact words on the page, it says "location not found" r
 
 <table>
 <tr>
-<td><img src="docs/images/01-welcome-dark.jpg" alt="The welcome screen in dark mode"></td>
+<td><img src="docs/images/11-image-recognition-dark.jpg" alt="Image recognition in dark mode for the fictional VenaGuard HC-7 file"></td>
 <td><img src="docs/images/03-change-selected-dark.jpg" alt="A selected change in dark mode"></td>
 </tr>
 <tr>

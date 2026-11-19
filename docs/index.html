@@ -94,6 +94,7 @@
     <a class="logo" href="#"><img src="images/icon.png" alt="">Beacon</a>
     <nav>
       <a href="#how" class="hide-sm">How it works</a>
+      <a href="#images" class="hide-sm">Images</a>
       <a href="#trust" class="hide-sm">Sources</a>
       <a href="#download">Download</a>
     </nav>
@@ -117,9 +118,9 @@
       </div>
       <div class="shot">
         <img id="hero-shot" src="images/03-change-selected-light.jpg" width="2880" height="1800"
-             alt="Beacon showing page 10 of a made-up technical file. A sentence about periodic reports is struck through, and the panel on the right suggests replacement wording, explains why, and cites SI 2024/1368 regulation 4.">
+             alt="Beacon reviewing the fictional FlowGuard IP-500 technical file. The device class line on page 1 is struck through, and the panel on the right suggests clearer wording, explains why, and cites UK MDR 2002 Annex IX rule 11.">
       </div>
-      <p class="small">Screenshots show Beacon reviewing a made-up sample file. They are examples, not advice about any real device.</p>
+      <p class="small">Screenshots show Beacon reviewing fictional technical files made up for testing: FlowGuard IP-500 (an infusion pump), Kestrel KT-20 and VenaGuard HC-7. Every device, company, Approved Body and person in them is invented. The output shown is an example, not advice about any real device.</p>
     </div>
   </div>
 
@@ -143,7 +144,7 @@
             <p>Words to replace are struck through, a caret ^ shows where to add something, and questions get a bubble in the margin. Every mark has a number.</p>
             <p>Hover over a mark to read the suggestion and accept or reject it on the spot.</p>
           </div>
-          <div class="shot"><img src="images/04-hover-popover-light.jpg" width="2880" height="1800" loading="lazy" alt="Hovering over a struck-through sentence shows a small card with the suggested wording, the reason, and Accept and Reject buttons."></div>
+          <div class="shot"><img src="images/04-hover-popover-light.jpg" width="2880" height="1800" loading="lazy" alt="Hovering over a marked passage in the FlowGuard file shows a small card with the suggested wording, the reason, and Accept and Reject buttons."></div>
         </div>
         <div class="step">
           <div class="text">
@@ -152,7 +153,7 @@
             <p>The Changes panel lists each suggestion with the current text, the new text, why, and a chip for the rule behind it. Step through with Previous and Next, or accept or reject them all.</p>
             <p>Where the answer depends on facts only you know, Beacon asks a question instead of guessing.</p>
           </div>
-          <div class="shot"><img src="images/03-change-selected-dark.jpg" width="2880" height="1800" loading="lazy" alt="The Changes panel in dark mode, with change 6 selected and its struck-through sentence outlined on the page."></div>
+          <div class="shot"><img src="images/03-change-selected-dark.jpg" width="2880" height="1800" loading="lazy" alt="The Changes panel in dark mode, with change 1 selected and its struck-through text outlined on the FlowGuard title page."></div>
         </div>
         <div class="step">
           <div class="text">
@@ -161,7 +162,7 @@
             <p>Ask Beacon a question in plain English. Answers cite the pages of your file and the regulations they rely on. Click a page chip and the passage lights up on the page.</p>
             <p>Or select any text and choose <strong>Ask Beacon</strong> or <strong>Suggest a change</strong>.</p>
           </div>
-          <div class="shot"><img src="images/06-chat-citation-light.jpg" width="2880" height="1800" loading="lazy" alt="The Chat tab answers a question about the device's classification, pointing out that page 4 says Class IIa and page 9 says Class I. The cited passage on page 9 is highlighted in yellow."></div>
+          <div class="shot"><img src="images/06-chat-citation-light.jpg" width="2880" height="1800" loading="lazy" alt="The Chat tab answers which class the FlowGuard pump is given: Class IIb under Rule 11. The cited rows of the device identification table on page 5 are highlighted in yellow."></div>
         </div>
         <div class="step">
           <div class="text">
@@ -175,7 +176,39 @@
     </div>
   </section>
 
-  <section id="trust" class="alt">
+  <section id="images" class="alt">
+    <div class="wrap">
+      <h2>It reads images, tables and diagrams too</h2>
+      <p class="intro">Technical files are full of block diagrams, scanned certificates and summary tables. Beacon's AI reads every page as a picture as well as text, and puts what it found beside the page.</p>
+      <div class="steps">
+        <div class="step">
+          <div class="text">
+            <h3>Page and findings side by side</h3>
+            <p>Pick a page with a dot, and see what the AI read from its pictures and tables next to it. Here it has read the system block diagram in the fictional Kestrel KT-20 thermometer file.</p>
+            <p>Text inside a picture can't be checked word for word, so every finding read from an image is marked <strong>Needs human confirmation</strong>, with Confirm and Dispute buttons.</p>
+          </div>
+          <div class="shot"><img src="images/10-image-recognition-light.jpg" width="2880" height="1800" loading="lazy" alt="Image recognition for the fictional Kestrel KT-20 file: page 3 with its system block diagram on the left, and on the right the AI's reading of the diagram, marked as needing human confirmation, with Confirm and Dispute buttons."></div>
+        </div>
+        <div class="step">
+          <div class="text">
+            <h3>Tables and scanned pages</h3>
+            <p>In the fictional VenaGuard HC-7 catheter file, Beacon reads the summary table on the cover: manufacturer, class, conformity route and certificates. It does the same for figures that exist only as images.</p>
+          </div>
+          <div class="shot"><img src="images/11-image-recognition-dark.jpg" width="2880" height="1800" loading="lazy" alt="Image recognition in dark mode for the fictional VenaGuard HC-7 file: the cover page and its summary table, with the AI's reading of the table beside it."></div>
+        </div>
+        <div class="step">
+          <div class="text">
+            <h3>An evidence matrix for the whole file</h3>
+            <p>Beacon checks your file area by area: intended purpose, classification, essential requirements, risk management, software and more. It shows what's covered, partial or missing, where the evidence is, and the rule it was judged against.</p>
+            <p>Every quote is checked against your document. Anything Beacon can't find word for word is dropped, not guessed.</p>
+          </div>
+          <div class="shot"><img src="images/12-evidence-matrix-light.jpg" width="2880" height="1800" loading="lazy" alt="The Evidence Matrix for the fictional VenaGuard HC-7 file: rows for intended purpose, qualification, classification rule, essential requirements and risk management, each with a status, the evidence and its page, and the regulation it was judged against."></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="trust">
     <div class="wrap">
       <h2>You can always see where a suggestion comes from</h2>
       <p class="intro">Every change names its source and provision, and says how settled the law behind it is. That's never shown by colour alone.</p>
