@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Beacon: UK technical file review</title>
+<meta name="description" content="Beacon reviews UK medical-device technical documentation and suggests changes against the Great Britain rules, with every suggestion tied to its source.">
+<meta property="og:title" content="Beacon: UK technical file review">
+<meta property="og:description" content="Upload your technical file. Beacon marks it up with suggested changes, each tied to the Great Britain rule behind it.">
+<meta property="og:image" content="images/03-change-selected-light.jpg">
+<link rel="icon" href="images/icon.png">
+<style>
+  :root {
+    --bg: #f6f7f9; --surface: #ffffff; --ink: #16202a; --muted: #55616e; --line: #dde2e8;
+    --brand: #1d3a5f; --accent: #b8741a; --accent-ink: #ffffff; --ok: #1d7a46;
+    --shadow: 0 1px 2px rgb(16 24 40 / .06), 0 8px 24px rgb(16 24 40 / .08);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #12171d; --surface: #1a2129; --ink: #e8edf2; --muted: #9aa6b2; --line: #2c3540;
+      --brand: #8fb4e3; --accent: #e3a04a; --accent-ink: #16202a; --ok: #6cc28f;
+      --shadow: 0 1px 2px rgb(0 0 0 / .3), 0 8px 24px rgb(0 0 0 / .35);
+    }
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  a { color: inherit; }
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 20px; }
+  header.top { display: flex; align-items: center; justify-content: space-between; padding: 18px 0; }
+  .logo { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 20px; text-decoration: none; }
+  .logo img { width: 34px; height: 34px; border-radius: 8px; }
+  nav a { margin-left: 18px; color: var(--muted); text-decoration: none; font-size: 15px; }
+  nav a:hover { color: var(--ink); }
+  .hero { padding: 48px 0 28px; text-align: center; }
+  .hero h1 { font-size: clamp(30px, 5vw, 50px); line-height: 1.12; margin: 0 auto 16px; max-width: 820px; letter-spacing: -0.02em; }
+  .hero p.lead { font-size: 19px; color: var(--muted); max-width: 680px; margin: 0 auto 28px; }
+  .btn { display: inline-flex; align-items: center; gap: 10px; padding: 14px 24px; border-radius: 10px; font-weight: 650; text-decoration: none; font-size: 17px; }
+  .btn-primary { background: var(--accent); color: var(--accent-ink); box-shadow: var(--shadow); }
+  .btn-primary:hover { filter: brightness(1.06); }
+  .btn-ghost { border: 1px solid var(--line); background: var(--surface); }
+  .cta { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  .small { font-size: 14px; color: var(--muted); }
+  .hero .small { margin-top: 14px; }
+  .shot { border-radius: 12px; overflow: hidden; border: 1px solid var(--line); box-shadow: var(--shadow); background: var(--surface); }
+  .shot img { display: block; width: 100%; height: auto; }
+  .showcase { margin: 28px auto 0; }
+  .toggle { display: inline-flex; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; margin: 0 auto 14px; background: var(--surface); }
+  .toggle button { border: 0; background: transparent; color: var(--muted); padding: 7px 14px; font: inherit; font-size: 14px; cursor: pointer; }
+  .toggle button[aria-pressed="true"] { background: var(--brand); color: var(--bg); font-weight: 600; }
+  section { padding: 64px 0; }
+  section h2 { font-size: clamp(24px, 3.4vw, 34px); margin: 0 0 10px; letter-spacing: -0.01em; }
+  section > .wrap > p.intro { color: var(--muted); max-width: 680px; margin: 0 0 32px; font-size: 18px; }
+  .steps { display: grid; gap: 56px; }
+  .step { display: grid; grid-template-columns: 1fr 1.6fr; gap: 36px; align-items: center; }
+  .step:nth-child(even) { grid-template-columns: 1.6fr 1fr; }
+  .step:nth-child(even) .text { order: 2; }
+  .step .num { display: inline-grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; background: var(--brand); color: var(--bg); font-weight: 700; margin-bottom: 10px; }
+  .step h3 { font-size: 22px; margin: 0 0 8px; }
+  .step p { margin: 0 0 8px; color: var(--muted); }
+  .labels { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 24px; }
+  .label { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 14px; }
+  .label strong { display: block; margin-bottom: 4px; }
+  .label span { color: var(--muted); font-size: 14px; }
+  .grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .card { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 20px; }
+  .card h3 { margin: 0 0 6px; font-size: 18px; }
+  .card p { margin: 0; color: var(--muted); font-size: 15px; }
+  .gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .gallery figure { margin: 0; }
+  .gallery figcaption { font-size: 14px; color: var(--muted); margin-top: 8px; }
+  ol.install { padding-left: 22px; }
+  ol.install li { margin-bottom: 10px; }
+  .download-box { text-align: center; background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 40px 20px; box-shadow: var(--shadow); }
+  .note { border-left: 4px solid var(--accent); background: var(--surface); padding: 14px 16px; border-radius: 0 10px 10px 0; color: var(--muted); }
+  footer { border-top: 1px solid var(--line); padding: 28px 0 40px; color: var(--muted); font-size: 14px; }
+  .alt { background: var(--surface); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .alt .label, .alt .card { background: var(--bg); }
+  @media (max-width: 860px) {
+    .step, .step:nth-child(even) { grid-template-columns: 1fr; gap: 16px; }
+    .step:nth-child(even) .text { order: 0; }
+    .labels, .grid3, .gallery { grid-template-columns: 1fr 1fr; }
+    nav a.hide-sm { display: none; }
+  }
+  @media (max-width: 520px) {
+    .labels, .grid3, .gallery { grid-template-columns: 1fr; }
+    nav a { margin-left: 12px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <a class="logo" href="#"><img src="images/icon.png" alt="">Beacon</a>
+    <nav>
+      <a href="#how" class="hide-sm">How it works</a>
+      <a href="#trust" class="hide-sm">Sources</a>
+      <a href="#download">Download</a>
+    </nav>
+  </header>
+</div>
+
+<main>
+  <div class="wrap hero">
+    <h1>Your UK technical file, reviewed like a document should be</h1>
+    <p class="lead">Upload your medical-device technical documentation. Beacon marks it up with suggested changes, page by page. Each change is tied to the Great Britain rule behind it, and you decide what to keep.</p>
+    <div class="cta">
+      <a class="btn btn-primary" href="#download">⬇ Download for Windows</a>
+      <a class="btn btn-ghost" href="#how">See how it works</a>
+    </div>
+    <p class="small">Free trial by invitation · Windows 10 and 11 · Great Britain only</p>
+
+    <div class="showcase">
+      <div class="toggle" role="group" aria-label="Screenshot theme">
+        <button type="button" data-theme-shot="light" aria-pressed="true">Light</button>
+        <button type="button" data-theme-shot="dark" aria-pressed="false">Dark</button>
+      </div>
+      <div class="shot">
+        <img id="hero-shot" src="images/03-change-selected-light.jpg" width="2880" height="1800"
+             alt="Beacon showing page 10 of a made-up technical file. A sentence about periodic reports is struck through, and the panel on the right suggests replacement wording, explains why, and cites SI 2024/1368 regulation 4.">
+      </div>
+      <p class="small">Screenshots show Beacon reviewing a made-up sample file. They are examples, not advice about any real device.</p>
+    </div>
+  </div>
+
+  <section id="how">
+    <div class="wrap">
+      <h2>How it works</h2>
+      <p class="intro">Beacon works like a PDF editor in review mode. There's nothing to learn: if you've used track changes, you already know how.</p>
+      <div class="steps">
+        <div class="step">
+          <div class="text">
+            <div class="num">1</div>
+            <h3>Drop in your technical file</h3>
+            <p>Drag a PDF onto Beacon, or click <strong>Try a sample file</strong> to see a review first. Beacon reads the file page by page, and changes appear as they are found.</p>
+          </div>
+          <div class="shot"><img src="images/01-welcome-light.jpg" width="2880" height="1800" loading="lazy" alt="Beacon's welcome screen: 'Drop your technical file here', with Choose a file and Try a sample file buttons and three steps: Upload, Review, Export."></div>
+        </div>
+        <div class="step">
+          <div class="text">
+            <div class="num">2</div>
+            <h3>See every change on the page</h3>
+            <p>Words to replace are struck through, a caret ^ shows where to add something, and questions get a bubble in the margin. Every mark has a number.</p>
+            <p>Hover over a mark to read the suggestion and accept or reject it on the spot.</p>
+          </div>
+          <div class="shot"><img src="images/04-hover-popover-light.jpg" width="2880" height="1800" loading="lazy" alt="Hovering over a struck-through sentence shows a small card with the suggested wording, the reason, and Accept and Reject buttons."></div>
+        </div>
+        <div class="step">
+          <div class="text">
+            <div class="num">3</div>
+            <h3>Decide, one change at a time</h3>
+            <p>The Changes panel lists each suggestion with the current text, the new text, why, and a chip for the rule behind it. Step through with Previous and Next, or accept or reject them all.</p>
+            <p>Where the answer depends on facts only you know, Beacon asks a question instead of guessing.</p>
+          </div>
+          <div class="shot"><img src="images/03-change-selected-dark.jpg" width="2880" height="1800" loading="lazy" alt="The Changes panel in dark mode, with change 6 selected and its struck-through sentence outlined on the page."></div>
+        </div>
+        <div class="step">
+          <div class="text">
+            <div class="num">4</div>
+            <h3>Ask about anything</h3>
+            <p>Ask Beacon a question in plain English. Answers cite the pages of your file and the regulations they rely on. Click a page chip and the passage lights up on the page.</p>
+            <p>Or select any text and choose <strong>Ask Beacon</strong> or <strong>Suggest a change</strong>.</p>
+          </div>
+          <div class="shot"><img src="images/06-chat-citation-light.jpg" width="2880" height="1800" loading="lazy" alt="The Chat tab answers a question about the device's classification, pointing out that page 4 says Class IIa and page 9 says Class I. The cited passage on page 9 is highlighted in yellow."></div>
+        </div>
+        <div class="step">
+          <div class="text">
+            <div class="num">5</div>
+            <h3>Take your work with you</h3>
+            <p>Export the PDF with Beacon's changes as standard comments that open in Acrobat, Edge or Preview, or the list of changes as a Word document.</p>
+          </div>
+          <div class="shot"><img src="images/07-more-menu-light.jpg" width="2880" height="1800" loading="lazy" alt="The More menu with the Evidence Matrix, Step-by-step check, Rules and sources, Activity history, and exports for PDF, Markdown and Word."></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="trust" class="alt">
+    <div class="wrap">
+      <h2>You can always see where a suggestion comes from</h2>
+      <p class="intro">Every change names its source and provision, and says how settled the law behind it is. That's never shown by colour alone.</p>
+      <div class="labels">
+        <div class="label"><strong>In force</strong><span>Law that applies today.</span></div>
+        <div class="label"><strong>Pending</strong><span>Made, or decided as policy, but not applying yet.</span></div>
+        <div class="label"><strong>Draft</strong><span>A draft or proposal that could still change.</span></div>
+        <div class="label"><strong>Question</strong><span>Something only you can answer.</span></div>
+      </div>
+      <div class="grid3" style="margin-top:24px">
+        <div class="card"><h3>Grey areas become questions</h3><p>Where the rules don't settle it for your device, Beacon asks you, with the sources that bear on it.</p></div>
+        <div class="card"><h3>Never mis-marked</h3><p>If Beacon can't find the exact words on the page, it says "location not found" rather than marking the wrong place.</p></div>
+        <div class="card"><h3>A full record</h3><p>Every suggestion and decision is kept in an activity history that can't be altered, so you can show how each decision was reached.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2>More to explore</h2>
+      <div class="gallery">
+        <figure><div class="shot"><img src="images/05-selection-toolbar-light.jpg" width="2880" height="1800" loading="lazy" alt="Selected text on the page with a small toolbar: Ask Beacon, Suggest a change."></div><figcaption>Select text to ask about it or suggest a change.</figcaption></figure>
+        <figure><div class="shot"><img src="images/09-rules-and-sources-light.jpg" width="2880" height="1800" loading="lazy" alt="The Rules and sources page listing UK regulations with their status."></div><figcaption>The UK rules and guidance Beacon works from, with their status.</figcaption></figure>
+        <figure><div class="shot"><img src="images/08-activity-history-light.jpg" width="2880" height="1800" loading="lazy" alt="The Activity history page listing each step of a review in order."></div><figcaption>An activity history of every step, in order.</figcaption></figure>
+        <figure><div class="shot"><img src="images/06-chat-citation-dark.jpg" width="2880" height="1800" loading="lazy" alt="The chat answer with its cited passage highlighted, in dark mode."></div><figcaption>Light and dark themes that follow your computer.</figcaption></figure>
+        <figure><div class="shot"><img src="images/01-welcome-dark.jpg" width="2880" height="1800" loading="lazy" alt="The welcome screen in dark mode."></div><figcaption>Start with your own file, or a made-up sample.</figcaption></figure>
+        <figure><div class="shot"><img src="images/03-change-selected-light.jpg" width="2880" height="1800" loading="lazy" alt="A selected replacement with its citation chips."></div><figcaption>Each change cites the regulation behind it.</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="download" class="alt">
+    <div class="wrap">
+      <div class="download-box">
+        <h2>Try Beacon</h2>
+        <p class="small" style="margin:0 0 22px">Beacon is in a free, invitation-only trial. You'll need an invitation to sign in.</p>
+        <a class="btn btn-primary" href="https://github.com/mz-846/beacon-download/releases/latest/download/Beacon-Setup.exe">⬇ Download Beacon for Windows</a>
+        <p class="small" style="margin-top:12px">Windows 10 or 11 · <a href="https://github.com/mz-846/beacon-download/releases">All versions</a></p>
+      </div>
+      <div class="grid3" style="margin-top:28px">
+        <div class="card">
+          <h3>Install</h3>
+          <ol class="install">
+            <li>Open the downloaded <strong>Beacon-Setup.exe</strong>.</li>
+            <li>If Windows says <em>"Windows protected your PC"</em>, click <strong>More info</strong>, then <strong>Run anyway</strong>. This appears because Beacon is new and not yet code-signed.</li>
+            <li>Open <strong>Beacon</strong> from the Start menu.</li>
+          </ol>
+        </div>
+        <div class="card">
+          <h3>Sign in</h3>
+          <ol class="install">
+            <li>Click <strong>Sign in</strong>. Your browser opens.</li>
+            <li>If you see "You are about to visit…", click <strong>Visit Site</strong>.</li>
+            <li>Sign in with the email address you were invited with, then click <strong>Return to the Beacon app</strong>.</li>
+          </ol>
+        </div>
+        <div class="card">
+          <h3>Good to know</h3>
+          <p>Your documents are sent to Google's Gemini AI service to be read. Other users can't see them, and you can delete them at any time. Please don't upload patient data.</p>
+          <p style="margin-top:10px">Beacon covers Great Britain only. Northern Ireland is flagged, not assessed.</p>
+        </div>
+      </div>
+      <p class="note" style="margin-top:24px">Beacon gives regulatory information to help you see what needs reviewing. It is not legal, regulatory or clinical advice, it does not decide whether your device complies, and it does not make submissions for you.</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">© 2026 Beacon. Regulatory information, not legal advice.</div>
+</footer>
+
+<script>
+  // Swap the main screenshot between the light and dark themes.
+  const shots = { light: "images/03-change-selected-light.jpg", dark: "images/03-change-selected-dark.jpg" };
+  const hero = document.getElementById("hero-shot");
+  document.querySelectorAll("[data-theme-shot]").forEach((button) => {
+    button.addEventListener("click", () => {
+      hero.src = shots[button.dataset.themeShot];
+      document.querySelectorAll("[data-theme-shot]").forEach((b) => b.setAttribute("aria-pressed", String(b === button)));
+    });
+  });
+  if (window.matchMedia("(prefers-color-scheme: dark)").matches) document.querySelector('[data-theme-shot="dark"]').click();
+</script>
+</body>
+</html>
